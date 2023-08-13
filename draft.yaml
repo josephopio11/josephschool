@@ -226,3 +226,78 @@ models:
     is_active: boolean nullable
 
 
+controllers:
+  School:
+    resource
+
+  Session:
+    resource
+
+  Student:
+    resource
+
+  Parent:
+    resource
+
+  StaffRoles:
+    resource
+
+  Staff:
+    resource
+
+  Atukot:
+    resource
+
+  Stream:
+    resource
+
+  Classroom:
+    resource
+
+  ClassroomBooking:
+    resource
+
+  Subject:
+    resource
+
+  AssessmentType:
+    resource
+
+  Assessment:
+    resource
+
+  Fee:
+    resource
+
+  PaymentType:
+    resource
+
+  Payment:
+    resource
+
+  Attendance:
+    resource
+
+  LibraryBooks:
+    resource
+
+  LibraryBookIssue:
+    resource
+
+  LibraryBookRequest:
+    resource
+
+  Hostel:
+    resource
+
+  HostelRoomType:
+    resource
+
+  HostelRoom:
+    resource
+
+  HostelBed:
+    resource
+
+  HostelAllocation:
+    resource
