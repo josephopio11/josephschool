@@ -1,0 +1,228 @@
+models:
+  School:
+    name: string:255 nullable
+    address: text nullable
+    starting_date: date nullable
+    phone: string:15 nullable
+    email: string:255 nullable
+    website: string:255 nullable
+    facebook: string:255 nullable
+    twitter: string:255 nullable
+    instagram: string:255 nullable
+    youtube: string:255 nullable
+    logo: string:255 nullable
+    is_active: boolean nullable
+
+  Session:
+    name: string:255 nullable
+    description: text nullable
+    start_date: date nullable
+    end_date: date nullable
+    is_active: boolean nullable
+
+  Student:
+    admission_number: string:255 nullable
+    admission_date: date nullable
+    first_name: string:50 nullable
+    middle_name: string:50 nullable
+    last_name: string:50 nullable
+    date_of_birth: date nullable
+    gender: string:10 nullable
+    address: text nullable
+    phone: string:15 nullable
+    alternate_phone: string:15 nullable
+    email: string:255 nullable
+    photo: string:255 nullable
+    is_active: boolean nullable
+    last_active: datetime nullable
+    previous_school: string:255 nullable
+    has_sibling: boolean nullable
+    can_login: boolean nullable
+    password: string:255 nullable
+
+  Parent:
+    salutation: string:10 nullable
+    first_name: string:50 nullable
+    middle_name: string:50 nullable
+    last_name: string:50 nullable
+    gender: string:10 nullable
+    date_of_birth: date nullable
+    occupation: string:255 nullable
+    address: text nullable
+    phone: string:15 nullable
+    alternate_phone: string:15 nullable
+    email: string:255 nullable
+    photo: string:255 nullable
+    is_active: boolean nullable
+    last_active: datetime nullable
+    is_married: boolean nullable
+    spouse_id: id:foreign:parents nullable
+    is_guardian: boolean nullable
+    can_login: boolean nullable
+    password: string:255 nullable
+
+  StaffRoles:
+    name: string:255 nullable
+    description: text nullable
+    is_active: boolean nullable
+
+  Staff:
+    salutation: string:10 nullable
+    first_name: string:50 nullable
+    middle_name: string:50 nullable
+    last_name: string:50 nullable
+    gender: string:10 nullable
+    date_of_birth: date nullable
+    address: text nullable
+    phone: string:15 nullable
+    alternate_phone: string:15 nullable
+    email: string:255 nullable
+    photo: string:255 nullable
+    is_active: boolean nullable
+    last_active: datetime nullable
+    staff_role_id: id:foreign:staff_roles nullable
+    password: string:255 nullable
+
+  Atukot:
+    name: string:255 nullable
+    numeric_name: integer nullable
+    description: text nullable
+    is_active: boolean nullable
+
+  Stream:
+    name: string:255 nullable
+    description: text nullable
+    is_active: boolean nullable
+
+  Classroom:
+    name: string:255 nullable
+    room_number: string:255 nullable
+    capacity: integer nullable
+    description: text nullable
+    is_active: boolean nullable
+
+  ClassroomBooking:
+    classroom_id: id:foreign:classrooms nullable
+    atukot_id: id:foreign:atukots nullable
+    date: date nullable
+    start_time: time nullable
+    end_time: time nullable
+    is_active: boolean nullable
+
+  Subject:
+    subject_code: string:255 nullable unique
+    name: string:255 nullable
+    atukot_id: id:foreign:atukots nullable
+    stream_id: id:foreign:streams nullable
+    teacher_id: id:foreign:staff nullable
+    syllabus: string:255 nullable
+    notify: boolean nullable
+    is_active: boolean nullable
+
+  AssessmentType:
+    subject_id: id:foreign:subjects nullable
+    teacher_id: id:foreign:staff nullable
+    atukot_id: id:foreign:atukots nullable
+    name: string:255 nullable
+    description: text nullable
+    is_active: boolean nullable
+
+  Assessment:
+    assessment_type_id: id:foreign:assessment_types nullable
+    atukot_id: id:foreign:atukots nullable
+    assessment_date: date nullable
+    stream_id: id:foreign:streams nullable
+    session_id: id:foreign:sessions nullable
+    pass_mark: integer nullable
+    full_mark: integer nullable
+    start_date: date nullable
+    end_date: date nullable
+    comments: text nullable
+    assessment_file: string:255 nullable
+    is_active: boolean nullable
+
+  Fee:
+    atukot_id: id:foreign:atukots nullable
+    name: string:255 nullable
+    description: text nullable
+    amount: decimal:10,2 nullable
+    is_active: boolean nullable
+
+  PaymentType:
+    name: string:255 nullable
+    description: text nullable
+    is_active: boolean nullable
+
+  Payment:
+    student_id: id:foreign:students nullable
+    payment_type_id: id:foreign:payment_types nullable
+    amount: decimal:10,2 nullable
+    date: date nullable
+    is_active: boolean nullable
+
+  Attendance:
+    student_id: id:foreign:students nullable
+    date: date nullable
+    is_present: boolean nullable
+    is_active: boolean nullable
+
+  LibraryBooks:
+    isbn: string:255 nullable
+    title: string:255 nullable
+    author: string:255 nullable
+    publisher: string:255 nullable
+    edition: string:255 nullable
+    year: string:255 nullable
+    pages: string:255 nullable
+    copies: integer nullable
+    price: decimal:10,2 nullable
+    category: string:255 nullable
+    rack: string:255 nullable
+    is_active: boolean nullable
+
+  LibraryBookIssue:
+    student_id: id:foreign:students nullable
+    book_id: id:foreign:library_books nullable
+    issue_date: date nullable
+    due_date: date nullable
+    return_date: date nullable
+    is_active: boolean nullable
+
+  LibraryBookRequest:
+    student_id: id:foreign:students nullable
+    book_id: id:foreign:library_books nullable
+    request_date: date nullable
+    is_active: boolean nullable
+
+  Hostel:
+    name: string:128 nullable
+    hostel_type: string:128 nullable
+    address: text nullable
+    phone: string:15 nullable
+    email: string:255 nullable
+    capacity: integer nullable
+    description: text nullable
+
+  HostelRoomType:
+    name: string:128 nullable
+    description: text nullable
+
+  HostelRoom:
+    room_number: string:128 nullable
+    hostel_id: id:foreign:hostels nullable
+    capacity: integer nullable
+    room_type_id: id:foreign:hostel_room_types nullable
+
+  HostelBed:
+    bed_number: string:128 nullable
+    room_id: id:foreign:hostel_rooms nullable
+    price: integer nullable
+    description: text nullable
+
+  HostelAllocation:
+    student_id: id:foreign:students nullable
+    bed_id: id:foreign:hostel_beds nullable
+    allocation_date: date nullable
+    is_active: boolean nullable
+
+
