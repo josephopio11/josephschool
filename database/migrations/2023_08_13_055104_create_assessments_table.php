@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('atukot_id')->nullable();
             $table->date('assessment_date')->nullable();
             $table->unsignedBigInteger('stream_id')->nullable();
-            $table->unsignedBigInteger('session_id')->nullable();
+            $table->unsignedBigInteger('school_session_id')->nullable();
             $table->integer('pass_mark')->nullable();
             $table->integer('full_mark')->nullable();
             $table->date('start_date')->nullable();

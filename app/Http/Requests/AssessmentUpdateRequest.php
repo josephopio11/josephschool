@@ -24,7 +24,7 @@ class AssessmentUpdateRequest extends FormRequest
             'atukot_id' => ['nullable', 'integer', 'exists:foreigns,id'],
             'assessment_date' => ['nullable', 'date'],
             'stream_id' => ['nullable', 'integer', 'exists:foreigns,id'],
-            'session_id' => ['nullable', 'integer', 'exists:foreigns,id'],
+            'school_session_id' => ['nullable', 'integer', 'exists:foreigns,id'],
             'pass_mark' => ['nullable', 'integer'],
             'full_mark' => ['nullable', 'integer'],
             'start_date' => ['nullable', 'date'],

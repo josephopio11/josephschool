@@ -2,6 +2,6 @@
     @extends('layouts.app')
 
     @section('content')
-        parent.create template
+        muzadde.edit template
     @endsection
 --}}

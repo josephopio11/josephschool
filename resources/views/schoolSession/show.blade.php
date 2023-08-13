@@ -2,6 +2,6 @@
     @extends('layouts.app')
 
     @section('content')
-        parent.index template
+        schoolSession.show template
     @endsection
 --}}

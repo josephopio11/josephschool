@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Session extends Model
+class MuzaddeStudent extends Model
 {
     use HasFactory;
 
@@ -15,11 +16,8 @@ class Session extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'description',
-        'start_date',
-        'end_date',
-        'is_active',
+        'muzadde_id',
+        'student_id',
     ];
 
     /**
@@ -29,8 +27,17 @@ class Session extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'start_date' => 'date',
-        'end_date' => 'date',
-        'is_active' => 'boolean',
+        'muzadde_id' => 'integer',
+        'student_id' => 'integer',
     ];
+
+    public function muzadde(): BelongsTo
+    {
+        return $this->belongsTo(Foreign::class);
+    }
+
+    public function student(): BelongsTo
+    {
+        return $this->belongsTo(Foreign::class);
+    }
 }

@@ -26,7 +26,7 @@ class AssessmentFactory extends Factory
             'atukot_id' => Foreign::factory(),
             'assessment_date' => $this->faker->date(),
             'stream_id' => Foreign::factory(),
-            'session_id' => Foreign::factory(),
+            'school_session_id' => Foreign::factory(),
             'pass_mark' => $this->faker->numberBetween(-10000, 10000),
             'full_mark' => $this->faker->numberBetween(-10000, 10000),
             'start_date' => $this->faker->date(),

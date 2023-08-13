@@ -2,6 +2,6 @@
     @extends('layouts.app')
 
     @section('content')
-        session.create template
+        muzadde.index template
     @endsection
 --}}

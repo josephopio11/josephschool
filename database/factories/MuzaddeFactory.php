@@ -5,16 +5,16 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Foreign;
-use App\Models\Parent;
+use App\Models\Muzadde;
 
-class ParentFactory extends Factory
+class MuzaddeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Parent::class;
+    protected $model = Muzadde::class;
 
     /**
      * Define the model's default state.

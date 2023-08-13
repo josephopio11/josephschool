@@ -20,7 +20,7 @@ class Assessment extends Model
         'atukot_id',
         'assessment_date',
         'stream_id',
-        'session_id',
+        'school_session_id',
         'pass_mark',
         'full_mark',
         'start_date',
@@ -41,7 +41,7 @@ class Assessment extends Model
         'atukot_id' => 'integer',
         'assessment_date' => 'date',
         'stream_id' => 'integer',
-        'session_id' => 'integer',
+        'school_session_id' => 'integer',
         'start_date' => 'date',
         'end_date' => 'date',
         'is_active' => 'boolean',
@@ -62,7 +62,7 @@ class Assessment extends Model
         return $this->belongsTo(Foreign::class);
     }
 
-    public function session(): BelongsTo
+    public function schoolSession(): BelongsTo
     {
         return $this->belongsTo(Foreign::class);
     }

@@ -2,6 +2,6 @@
     @extends('layouts.app')
 
     @section('content')
-        parent.edit template
+        schoolSession.edit template
     @endsection
 --}}

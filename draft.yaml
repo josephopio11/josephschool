@@ -13,7 +13,7 @@ models:
     logo: string:255 nullable
     is_active: boolean nullable
 
-  Session:
+  SchoolSession:
     name: string:255 nullable
     description: text nullable
     start_date: date nullable
@@ -40,7 +40,7 @@ models:
     can_login: boolean nullable
     password: string:255 nullable
 
-  Parent:
+  Muzadde:
     salutation: string:10 nullable
     first_name: string:50 nullable
     middle_name: string:50 nullable
@@ -56,10 +56,14 @@ models:
     is_active: boolean nullable
     last_active: datetime nullable
     is_married: boolean nullable
-    spouse_id: id:foreign:parents nullable
+    spouse_id: id:foreign:muzaddes nullable
     is_guardian: boolean nullable
     can_login: boolean nullable
     password: string:255 nullable
+
+  MuzaddeStudent:
+    muzadde_id: id:foreign:muzaddes nullable
+    student_id: id:foreign:students nullable
 
   StaffRoles:
     name: string:255 nullable
@@ -132,7 +136,7 @@ models:
     atukot_id: id:foreign:atukots nullable
     assessment_date: date nullable
     stream_id: id:foreign:streams nullable
-    session_id: id:foreign:sessions nullable
+    school_session_id: id:foreign:school_sessions nullable
     pass_mark: integer nullable
     full_mark: integer nullable
     start_date: date nullable
@@ -230,13 +234,13 @@ controllers:
   School:
     resource
 
-  Session:
+  SchoolSession:
     resource
 
   Student:
     resource
 
-  Parent:
+  Muzadde:
     resource
 
   StaffRoles:

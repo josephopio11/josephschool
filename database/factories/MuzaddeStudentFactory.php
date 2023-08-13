@@ -4,16 +4,17 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\Session;
+use App\Models\Foreign;
+use App\Models\MuzaddeStudent;
 
-class SessionFactory extends Factory
+class MuzaddeStudentFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Session::class;
+    protected $model = MuzaddeStudent::class;
 
     /**
      * Define the model's default state.
@@ -21,11 +22,8 @@ class SessionFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name,
-            'description' => $this->faker->text,
-            'start_date' => $this->faker->date(),
-            'end_date' => $this->faker->date(),
-            'is_active' => $this->faker->boolean,
+            'muzadde_id' => Foreign::factory(),
+            'student_id' => Foreign::factory(),
         ];
     }
 }
