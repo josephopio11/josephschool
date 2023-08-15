@@ -52,8 +52,16 @@ Route::middleware([
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 });
 
-Route::get('/admission', [AdmissionController::class, 'index'])->name('admission');
-Route::post('/admission', [AdmissionController::class, 'admit'])->name('admission.admit');
+Route::resource('admission', AdmissionController::class);
+// Route::post('/admission', [AdmissionController::class, 'admit'])->name('admission.admit');
+
+Route::prefix('class')->group(function () {
+    Route::resource('atukot', AtukotController::class);
+    Route::resource('subject', SubjectController::class);
+    Route::resource('classroom', ClassroomController::class);
+    Route::resource('classroom-booking', ClassroomBookingController::class);
+})->name('class');
+
 
 Route::resource('school', SchoolController::class);
 Route::resource('school-session', SchoolSessionController::class);
@@ -61,11 +69,7 @@ Route::resource('student', StudentController::class);
 Route::resource('muzadde', MuzaddeController::class);
 Route::resource('staff-roles', StaffRolesController::class);
 Route::resource('staff', StaffController::class);
-Route::resource('atukot', AtukotController::class);
 Route::resource('stream', StreamController::class);
-Route::resource('classroom', ClassroomController::class);
-Route::resource('classroom-booking', ClassroomBookingController::class);
-Route::resource('subject', SubjectController::class);
 Route::resource('assessment-type', AssessmentTypeController::class);
 Route::resource('assessment', AssessmentController::class);
 Route::resource('fee', FeeController::class);
